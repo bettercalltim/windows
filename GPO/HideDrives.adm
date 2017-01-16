@@ -1,0 +1,42 @@
+#if version >= 3
+CLASS USER
+CATEGORY !!WindowsComponents
+    CATEGORY !!WindowsExplorer
+        KEYNAME "Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"
+        POLICY !!NoDrives
+            EXPLAIN !!NoDrives_Help
+            PART !!NoDrivesDropdown       DROPDOWNLIST NOSORT REQUIRED
+            VALUENAME "NoDrives"
+                ITEMLIST
+                    NAME !!ShowAll       VALUE NUMERIC       0
+                    NAME !!HideAll       VALUE NUMERIC       67108863 DEFAULT
+                    NAME !!D_Only       VALUE NUMERIC       67108855
+                END ITEMLIST
+            END PART
+        END POLICY
+        POLICY !!NoViewOnDrive
+            EXPLAIN !!NoViewOnDrive_Help
+            PART !!NoViewOnDriveDropdown       DROPDOWNLIST NOSORT REQUIRED
+            VALUENAME "NoViewOnDrive"
+                ITEMLIST
+                    NAME !!ShowAll       VALUE NUMERIC       0
+                    NAME !!HideAll       VALUE NUMERIC       67108863 DEFAULT
+                    NAME !!D_Only       VALUE NUMERIC       67108855
+                END ITEMLIST
+            END PART
+        END POLICY
+    END CATEGORY ; WindowsExplorer
+END CATEGORY ; WindowsComponents
+#endif
+[strings]
+NoDrives="Show only certain drives in My Computer"
+NoDrives_Help="Removes the icons representing all but selected hard drives from My Computer"
+NoDrivesDropdown="Pick one of the following combinations"
+NoViewOnDrive="Prevent access to drives from My Computer."
+NoViewOnDrive_Help="Prevents users from using My Computer to gain access to the content of selected drives."
+NoViewOnDriveDropdown="Pick one of the following combinations"
+WindowsComponents="Windows Components"
+WindowsExplorer="Windows Explorer"
+ShowAll="Show all drives"
+HideAll="Hide all drives"
+D_Only="Restrict all except D"
